@@ -1,0 +1,136 @@
+$gold-accent: #c5a367;
+$white: #ffffff;
+$dark-bg: rgba(10, 10, 10, 0.85);
+$red-btn: #b32d15;
+
+.about {
+    background: $dark-bg url('../images/menubg.jpg') center/cover no-repeat fixed;
+    padding: 30px 0 0;
+    color: $white;
+    font-family: "Tinos", serif;
+    overflow: hidden;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        gap: 40px;
+        padding: 60px;
+
+        @media screen and (max-width:420px) {
+            padding: 25px;
+
+        }
+    }
+
+    .image-container {
+        flex: 1 1 400px;
+
+        img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .content-container {
+        flex: 1 1 500px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+
+        /* ===== Title with gold lines ===== */
+        .title-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+
+            .title-line {
+                height: 1px;
+                background: $gold-accent;
+                flex: 0 0 387px;
+            }
+
+            .first {
+                display: none;
+            }
+
+            .section-title {
+                font-size: clamp(2rem, 4vw, 2.5rem);
+                color: $gold-accent;
+                font-style: italic;
+                font-weight: 200;
+                margin: 0;
+                white-space: nowrap;
+            }
+        }
+
+        .main-heading {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .description {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .btn-learn-more {
+            width: max-content;
+            padding: 12px 30px;
+            background: $red-btn;
+            color: $white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: darken($gold-accent, 10%);
+                transform: translateY(-3px);
+            }
+        }
+    }
+
+    /* ===== Tablet (979px–900px) ===== */
+    @media (max-width: 981px) {
+        .content-container {
+            align-items: center;
+            justify-content: center;
+
+            .title-wrapper {
+                .title-line {
+                    flex: 0 0 200px;
+                }
+
+                .first {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 600px) {
+        .content-container {
+            .title-wrapper {
+                gap: 10px;
+
+                .title-line {
+                    flex: 0 1 60px;
+                }
+            }
+        }
+    }
+}

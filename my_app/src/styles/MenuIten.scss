@@ -1,0 +1,113 @@
+/* MenuFormPremium.scss */
+$grad-black: #0a0a0a;
+$grad-green: #142114;
+$gold-accent: #c5a367;
+$white: #ffffff;
+
+.menu-form {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: linear-gradient(145deg, $grad-black, $grad-green);
+    border-radius: 16px;
+    border: 1px solid rgba($gold-accent, 0.6);
+    box-shadow: 0 15px 30px rgba($gold-accent, 0.25), 0 8px 20px rgba($grad-black, 0.6);
+    backdrop-filter: blur(6px);
+    color: $gold-accent;
+    font-family: "Tinos", serif;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h3 {
+        text-align: center;
+        font-size: 1.7rem;
+        margin-bottom: 1.5rem;
+        color: $gold-accent;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7), 0 0 10px rgba($gold-accent, 0.3);
+    }
+
+    select,
+    input {
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid rgba($gold-accent, 0.5);
+        background: rgba(20, 20, 20, 0.85);
+        color: $white;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+
+        &::placeholder {
+            color: rgba($white, 0.6);
+        }
+
+        &:focus {
+            outline: none;
+            border-color: $gold-accent;
+            box-shadow: 0 0 12px rgba($gold-accent, 0.5);
+            background: rgba(30, 30, 30, 0.9);
+        }
+    }
+
+    .image-preview {
+        display: flex;
+        justify-content: center;
+        margin-top: 0.5rem;
+
+        img {
+            max-width: 100%;
+            max-height: 120px;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba($gold-accent, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+            &:hover {
+                transform: scale(1.03);
+                box-shadow: 0 6px 18px rgba($gold-accent, 0.6);
+            }
+        }
+    }
+
+    button {
+        padding: 12px;
+        background: linear-gradient(45deg, lighten($gold-accent, 5%), darken($gold-accent, 10%));
+        color: $grad-black;
+        font-size: 1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 14px;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba($gold-accent, 0.5);
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 10px 25px rgba($gold-accent, 0.6);
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: 0 6px 18px rgba($gold-accent, 0.5);
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        padding: 1.5rem;
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        select,
+        input,
+        button {
+            font-size: 0.9rem;
+            padding: 10px 12px;
+        }
+
+        .image-preview img {
+            max-height: 100px;
+        }
+    }
+}

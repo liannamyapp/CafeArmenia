@@ -1,0 +1,82 @@
+.admin {
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+        url('../images/menubg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    form {
+        color: $gold-accent;
+        width: 100%;
+        max-width: 520px;
+        min-height: 320px;
+        box-shadow: 0 0 25px rgba(197, 163, 103, 0.35);
+
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 35px;
+
+        border: 1px solid $gold-accent;
+
+        input {
+            width: 100%;
+            border-radius: 8px;
+            padding: 10px;
+            color: $gold-accent;
+            background: transparent;
+            border: 1px solid $gold-accent;
+            outline: none;
+
+            &:focus {
+                background: $gold-accent;
+                color: $grad-green;
+                border: 1px solid $gold-accent;
+            }
+        }
+
+        button {
+            align-self: flex-end;
+            padding: 8px 18px;
+            background: $red-btn;
+            color: $white;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.3s ease;
+
+            &:hover {
+                background: darken($red-btn, 10%);
+                transform: translateY(-1px);
+            }
+        }
+
+        span {
+            text-decoration: underline;
+            cursor: pointer;
+            text-transform: capitalize;
+        }
+    }
+
+    @media (max-width: 425px) {
+        padding: 60px 20px;
+
+        form {
+            padding: 25px;
+        }
+    }
+}

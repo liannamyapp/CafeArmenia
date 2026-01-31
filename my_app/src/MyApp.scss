@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    scroll-behavior: smooth;
+    scroll-padding: 90px;
+}
+
+$grad-green: #142114;
+$grad-brown: #2d1b10;
+$grad-black: #0a0a0a;
+$gold-accent: #c5a367;
+$white: #ffffff;
+
+.myApp {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+    .adminPanel {
+        width: 100%;
+        min-width: 250px;
+        padding: 20px;
+        display: flex;
+
+        align-items: center;
+        justify-content: flex-start;
+        border: 1px solid rgba($gold-accent, 0.5);
+        background-attachment: fixed;
+        height: 100%;
+
+
+
+        .adminMenu {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba($gold-accent, 0.5);
+            padding: 10px;
+
+            button {
+                width: 100%;
+                padding: 10px;
+                border-radius: 12px;
+                border: 1px solid rgba($gold-accent, 0.5);
+                cursor: pointer;
+                font-size: 0.9rem;
+                text-align: start;
+
+                &:hover {
+                    background-color: $gold-accent;
+                    color: $grad-black;
+                }
+            }
+        }
+    }
+
+    .adminContent {
+        flex: 1;
+        width: 100%;
+        border: 1px solid rgba($gold-accent, 0.5);
+        padding: 20px;
+        align-self: stretch;
+
+
+        .pages {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            padding: 2rem;
+
+            min-height: 100vh;
+
+            form {
+                max-width: 400px;
+                width: 100%;
+                padding: 2rem;
+                background: linear-gradient(145deg, rgba(10, 10, 10, 0.95), rgba(35, 35, 35, 0.95));
+                border-radius: 16px;
+                border: 1px solid rgba(#c5a367, 0.6);
+                box-shadow: 0 15px 30px rgba(#c5a367, 0.25), 0 8px 20px rgba(#0a0a0a, 0.6);
+                backdrop-filter: blur(6px);
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                color: #ffffff;
+                position: relative;
+                overflow: hidden;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 200%;
+                    height: 200%;
+                    background: radial-gradient(circle, rgba(#c5a367, 0.3) 0%, transparent 70%);
+                    animation: shimmer 6s infinite linear;
+                    pointer-events: none;
+                }
+
+                h2 {
+                    text-align: center;
+                    font-size: 1.7rem;
+                    margin-bottom: 1.5rem;
+                    color: #c5a367;
+                    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7), 0 0 10px rgba(#c5a367, 0.3);
+                }
+
+                input {
+                    padding: 12px 14px;
+                    border-radius: 12px;
+                    border: 1px solid rgba(#c5a367, 0.5);
+                    background: rgba(20, 20, 20, 0.85);
+                    color: #ffffff;
+                    font-size: 0.95rem;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 0 8px rgba(#c5a367, 0.2) inset;
+
+                    &::placeholder {
+                        color: rgba(#ffffff, 0.6);
+                    }
+
+                    &:focus {
+                        outline: none;
+                        border-color: #c5a367;
+                        box-shadow: 0 0 14px rgba(#c5a367, 0.6), 0 0 4px rgba(#c5a367, 0.3) inset;
+                        background: rgba(30, 30, 30, 0.95);
+                    }
+                }
+
+                button {
+                    padding: 12px;
+                    border-radius: 14px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    border: none;
+                    background: linear-gradient(45deg, lighten(#c5a367, 5%), darken(#c5a367, 10%));
+                    color: #0a0a0a;
+                    box-shadow: 0 6px 18px rgba(#c5a367, 0.5);
+                    transition: all 0.3s ease;
+                    position: relative;
+                    overflow: hidden;
+
+                    &:hover {
+                        transform: translateY(-2px) scale(1.03);
+                        box-shadow: 0 10px 25px rgba(#c5a367, 0.6);
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: -100%;
+                            width: 50%;
+                            height: 100%;
+                            background: rgba(#ffffff, 0.15);
+                            transform: skewX(-20deg);
+                            animation: shine 1s forwards;
+                        }
+                    }
+                }
+            }
+
+            @keyframes shimmer {
+                0% {
+                    transform: rotate(0deg) translate(0, 0);
+                }
+
+                100% {
+                    transform: rotate(360deg) translate(0, 0);
+                }
+            }
+
+            @keyframes shine {
+                100% {
+                    left: 200%;
+                }
+            }
+
+            @media screen and (max-width: 480px) {
+                padding: 1rem;
+                gap: 2rem;
+            }
+        }
+    }
+
+    // MOBILE RESPONSIVE
+    @media (max-width: 768px) {
+        flex-direction: column;
+
+
+        .adminPanel,
+        .adminContent,
+        .adminMenu {
+            width: 100%;
+            min-width: auto;
+            flex-direction: column;
+
+
+        }
+
+    }
+
+    @media (max-width: 480px) {
+        .adminPanel {
+            padding: 15px;
+
+            .adminMenu {
+                gap: 5px;
+
+                button {
+                    padding: 8px;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+
+        .adminContent {
+            padding: 15px;
+        }
+    }
+
+    @media (max-width: 320px) {
+
+
+        .adminPanel {
+            width: 100%;
+            padding: 10px;
+
+
+            .adminMenu {
+                button {
+                    padding: 6px;
+                    font-size: 0.7rem;
+                }
+            }
+        }
+
+        .adminContent {
+            padding: 10px;
+            font-size: 0.85rem;
+        }
+    }
+}

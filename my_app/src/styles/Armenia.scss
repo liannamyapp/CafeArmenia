@@ -1,0 +1,31 @@
+.image {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; // Ապահովության համար, որ նկարը դուրս չգա բլոկից
+
+    img {
+        width: 100%;
+        height: 100%;
+        /* Կարևորագույն մասը. նկարը պահպանում է իր տեսքը առանց դեֆորմացիայի */
+        object-fit: cover;
+        /* Կենտրոնացնում է նկարը (կարող եք փոխել top կամ bottom ըստ կարիքի) */
+        object-position: center;
+    }
+
+    // Ադապտիվ մասը 848px-ից ներքև
+    @media screen and (max-width: 848px) {
+        height: 72vh; // Փոքր էկրանների վրա 100vh-ը կարող է շատ լինել, կարելի է քչացնել
+
+        img {
+            /* Ապահովում ենք, որ փոքր էկրանի վրա ևս նկարը մնա որակով */
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    // Եթե ցանկանում եք շատ փոքր հեռախոսների համար (օրինակ 480px)
+    @media screen and (max-width: 480px) {
+        height: 48vh;
+        min-height: 265px;
+    }
+}

@@ -1,0 +1,118 @@
+$gold-text: #c5a367;
+$error-red: #ff4d4d;
+$btn-gradient: linear-gradient(to right, #d35400, #c0392b);
+$dark-bg: rgba(10, 10, 10, 0.85);
+
+.reservations {
+    width: 100%;
+    padding: 80px ;
+    color: white;
+    text-align: center;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+
+        .reservations__line {
+            height: 1px;
+            background: $gold-text;
+            flex: 0 1 150px;
+        }
+    }
+
+    &__title {
+        color: $gold-text;
+        font-size: 2.5rem;
+        font-style: italic;
+    }
+
+    &__form {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 15px;
+        margin-top: 30px;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+      
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            background: white;
+            color: #333;
+            outline: none;
+
+            &.input-error {
+                border-color: $error-red;
+            }
+        }
+
+        .error-msg {
+            color: $error-red;
+            font-size: 0.75rem;
+            margin-top: 5px;
+        }
+
+        .reservations__button-wrapper {
+            grid-column: 1 / -1;
+            margin-top: 20px;
+            text-align: center;
+        }
+    }
+
+    &__btn {
+        background: $btn-gradient;
+        color: white;
+        padding: 14px 70px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 900px) {
+    .reservations {
+        &__form {
+            grid-template-columns: repeat(2, 1fr);
+
+            .form-group.guest {
+                grid-column: 1 / -1; // ամբողջ լայնք
+            }
+        }
+    }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+    .reservations {
+        &__form {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+@media (max-width: 420px) {
+    .reservations {
+     padding: 25px;
+        &__form {
+            grid-template-columns: 1fr;
+        }
+    }
+}

@@ -1,0 +1,250 @@
+// Փոփոխականներ
+$font-title: 'Playfair Display', serif; // Շքեղ Serif տառատեսակ վերնագրերի համար
+$font-text: 'Poppins', sans-serif;
+$gold-accent: #c5a367;
+$text-dark: #1a1a1a;
+$text-light: #666;
+$bg-cream: #fdfbf7;
+$white: #ffffff;
+$red-btn: #b32d15;
+
+.favorites {
+    background-color: $bg-cream;
+    padding: 100px 0;
+    text-align: center;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 70px;
+        gap: 20px;
+
+        @media (max-width: 848px) {
+            flex-direction: column;
+            gap: 40px;
+        }
+    }
+
+    // "Fresh Ingredients" և "Cozy Ambiance" բլոկները
+    &__feature {
+        flex: 1;
+
+        i {
+            font-size: 32px;
+            color: $gold-accent;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        h3 {
+            font-family: $font-title;
+            font-size: 20px;
+            color: $text-dark;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 13px;
+            color: $text-light;
+            line-height: 1.6;
+            max-width: 250px;
+            margin: 0 auto;
+        }
+    }
+
+    // Կենտրոնական վերնագիրը
+    &__title {
+        flex: 1.5;
+
+
+
+        h2 {
+            font-family: "Tinos", serif;
+            font-style: italic;
+            font-weight: 200;
+            font-size: 42px;
+            color: $text-dark;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+
+            // Ոսկեգույն հորիզոնական գծերը
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                top: 55%;
+                width: 60px;
+                height: 1px;
+                background-color: rgba($gold-accent, 0.5);
+            }
+
+            &::before {
+                left: -80px;
+            }
+
+            &::after {
+                right: -80px;
+            }
+
+            @media (max-width: 1024px) {
+
+                &::before,
+                &::after {
+                    display: none;
+                }
+            }
+        }
+
+        p {
+            font-size: 14px;
+            color: $gold-accent;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
+        }
+    }
+
+    // Grid համակարգը
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        margin-bottom: 60px;
+
+        @media (max-width: 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 500px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // Ուտեստի քարտը
+    .food-card {
+        background-color: $white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+        transition: all 0.4s ease;
+
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+        }
+
+        &__image {
+            height: 220px;
+            width: 100%;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.6s ease;
+            }
+        }
+
+        &:hover &__image img {
+            transform: scale(1.1);
+        }
+
+        &__info {
+            padding: 25px 15px;
+            background-color: #fcf9f5; // Քարտի ներքևի բաց կրեմագույն ֆոնը
+
+            h4 {
+                font-family: $font-title;
+                font-size: 18px;
+                color: $text-dark;
+                margin-bottom: 12px;
+            }
+
+       
+        }
+    }
+
+    // View Full Menu կոճակը
+   &__actions {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       margin-top: 40px;
+       position: relative;
+
+       .view-menu-btn {
+           position: relative;
+           background: linear-gradient(to bottom, $red-btn, darken($red-btn, 5%));
+           color: $white;
+           border: none;
+           padding: 16px 50px;
+           font-size: 15px;
+           font-weight: bold;
+           border-radius: 50px;
+           cursor: pointer;
+           text-transform: capitalize;
+           box-shadow: 0 10px 20px rgba($red-btn, 0.3);
+           transition: all 0.3s ease;
+
+           // Ոսկեգույն գծերի ընդհանուր ոճը
+           &::before,
+           &::after {
+               content: "";
+               position: absolute;
+               top: 50%;
+               width: 60px; // Սկզբնական երկարությունը
+               height: 1px;
+               background-color: rgba($gold-accent, 0.6);
+               transition: all 0.4s ease-in-out; // Անիմացիայի սահունությունը
+           }
+
+           // Ձախ գիծը
+           &::before {
+               left: -80px; // Սկզբնական դիրքը ձախից
+           }
+
+           // Աջ գիծը
+           &::after {
+               right: -80px; // Սկզբնական դիրքը աջից
+           }
+
+           // Անիմացիա մկնիկը կոճակին մոտեցնելիս (Hover)
+           &:hover {
+               transform: scale(1.05);
+               box-shadow: 0 15px 25px rgba($red-btn, 0.4);
+               background: linear-gradient(to bottom, lighten($red-btn, 5%), $red-btn);
+
+               // Գծերը երկարում են և մի փոքր ավելի վառ դառնում
+               &::before {
+                   width: 100px;
+                   left: -120px;
+                   background-color: rgba($gold-accent, 1);
+               }
+
+               &::after {
+                   width: 100px;
+                   right: -120px;
+                   background-color: rgba($gold-accent, 1);
+               }
+           }
+
+           // Էկրանի նեղացման դեպքում (Mobile) գծերը թաքցնում ենք
+           @media (max-width: 768px) {
+
+               &::before,
+               &::after {
+                   display: none;
+               }
+           }
+       }
+   }
+}

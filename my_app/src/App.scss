@@ -1,0 +1,15 @@
+.App {
+  position: relative;
+  width: 100%;
+  flex-grow: 1;
+
+
+  @import './styles/HeaderSection.scss';
+  @import './styles//HeroSection.scss';
+  @import './styles/Menu.scss';
+  @import './styles/About.scss';
+  @import './styles/Modal.scss';
+  @import './styles/Reservations.scss';
+  @import './styles/AdminAuth.scss';
+   @import './styles/Footer.scss';
+}
