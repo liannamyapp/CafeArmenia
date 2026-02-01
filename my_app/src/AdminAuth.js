@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
 
+const API_URL = "https://cafearmenia.onrender.com/api/admin";
 const AdminAuth = () => {
     const { admin, login } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ const AdminAuth = () => {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const API_URL = "http://localhost:5000/api/admin";
+  
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
