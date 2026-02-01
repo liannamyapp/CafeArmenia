@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
-const API_URL = "http://localhost:5000/api/menu";
+const API_URL = "https://cafearmenia.onrender.com/api/menu";
 
 const Menu = () => {
     const { admin } = useContext(AuthContext);
@@ -111,9 +111,10 @@ const Menu = () => {
                                         <div className="card" key={i}>
                                             {dish.image && (
                                                 <img
-                                                    src={`http://localhost:5000${dish.image}`}
+                                                    src={dish.image ? `${API_URL}${dish.image}` : "/placeholder.png"}
                                                     alt={dish.name}
                                                 />
+
                                             )}
 
                                             <h4>{dish.name}</h4>
