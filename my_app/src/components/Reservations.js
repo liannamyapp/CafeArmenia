@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-const API_URL = "https://cafearmenia.onrender.com/api/reservations";
+const API_URL = "https://cafearmenia.onrender.com";
 export default function Reservations() {
     const [formData, setFormData] = useState({
         name: "",
