@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+const API_URL = "https://cafearmenia.onrender.com/api/menu";
 export default function Reservations() {
     const [formData, setFormData] = useState({
         name: "",
@@ -54,7 +54,7 @@ export default function Reservations() {
         try {
             setLoading(true);
 
-            const res = await fetch("http://localhost:5000/api/reservations", {
+            const res = await fetch(`${API_URL}/api/reservations`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
